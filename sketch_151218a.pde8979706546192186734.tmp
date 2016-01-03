@@ -1,0 +1,110 @@
+  PGraphics pg;
+  PFont font;
+void setup(){
+  String[] record=loadStrings("data/data.txt" );
+  println(record[0]);
+  JSONArray weiboArrary=new JSONArray();
+  int weiboAmount=0;
+  for(int i=0;i<record.length;i++){
+    if(match(record[i],"昆明")!=null){
+       JSONObject weiboObject=new JSONObject();
+       String[] temp=splitTokens(record[i]," :");
+       weiboObject.setString("Week",(temp[0]));
+       weiboObject.setString("Month",(temp[1]));
+       weiboObject.setInt("Date",int(temp[2]));
+       weiboObject.setInt("Hour",int(temp[3]));
+       weiboObject.setInt("Minute",int(temp[4]));
+       weiboObject.setInt("Second",int(temp[5]));
+      // weiboObject.setInt("Year",int(temp[7]));
+       weiboObject.setInt("Fans",int(temp[9]));
+       weiboObject.setInt("Weibo",int(temp[10])); 
+       weiboArrary.setJSONObject(weiboAmount,weiboObject);
+       weiboAmount++;
+       println(weiboAmount);
+   }
+}
+String[] record2=loadStrings("data/data2.txt" );
+  println(record2[0]);
+  JSONArray weiboArrary2=new JSONArray();
+  weiboAmount=0;
+  for(int i=0;i<record2.length;i++){
+    if(match(record2[i],"航")!=null){
+       JSONObject weiboObject=new JSONObject();
+       String[] temp=splitTokens(record2[i]," :");
+       weiboObject.setString("Week",(temp[0]));
+       weiboObject.setString("Month",(temp[1]));
+       weiboObject.setInt("Date",int(temp[2]));
+       weiboObject.setInt("Hour",int(temp[3]));
+       weiboObject.setInt("Minute",int(temp[4]));
+       weiboObject.setInt("Second",int(temp[5]));
+      // weiboObject.setInt("Year",int(temp[7]));
+       weiboObject.setInt("Fans",int(temp[9]));
+       weiboObject.setInt("Weibo",int(temp[10]));
+       weiboArrary2.setJSONObject(weiboAmount,weiboObject);
+       weiboAmount++;
+       println(weiboAmount);
+   }
+}
+//saveJSONArray(weiboArrary,"data.json");
+//saveJSONArray(weiboArrary2,"data2.json");
+
+  size(1000,1000,P2D);
+ 
+  pg = createGraphics(1000, 1000);
+  font = loadFont("Courier-12.vlw");
+}
+
+void draw(){
+ background(204,204,204);
+ pg.beginDraw();
+ pg.stroke(153);
+ pg.line(100,100,100,500);
+ pg.line(100,500,900,500);
+ pg.line(100,400,900,400);
+ pg.line(100,300,900,300);
+ pg.line(100,200,900,200);
+ pg.fill(114,125,244);
+ pg.triangle(97,106,100,100,103,106);
+ pg.triangle(896,496,900,501,896,504);
+ pg.textFont(font, 12);
+ pg.text("Chat_Amount",20,100);
+ pg.text("Date",890,515);
+ pg.text(100, 70, 400);
+ pg.text(200, 70, 300);
+ pg.text(300, 70, 200);
+ for(int i=0;i<data.size();i++){ 
+   int len=data.getJSONObject(i).getInt("Number");
+   String text=data.getJSONObject(i).getString("Date");
+   noStroke();
+   int colorchoice=i%7;
+   pg.fill(week_color[colorchoice]);
+   pg.rect(100+22*i,500-len,22,len);
+   pg.fill(114,125,244);
+   pg.text(text.substring(0,2), 100+22*i, 512);
+   pg.text("|", 104+22*i, 520);
+   pg.text(text.substring(2,4), 100+22*i, 530);
+   if( mouseX<100+22*(i+2)&&mouseX>100+22*(i+1)){
+    pg.textAlign(CENTER);
+    pg.textFont(font, 14);
+    pg.text(len,111+22*i,490-len);
+    pg.textFont(font, 12);
+    pg.textAlign(LEFT);
+  }
+}
+  for(int j=0;j<7;j++){
+   pg.fill(week_color[j]);
+   pg.noStroke();
+   pg.arc(800,80,80,80,PI*2*j/7, PI*2*(j+1)/7,PIE);
+ }
+ pg.fill(#3A3737);
+ pg.text(1,780,60);
+ pg.text(2,800,60);
+ pg.text(3,820,70);
+ pg.text(4,820,100);
+ pg.text(5,800,110);
+ pg.text(6,780,110);
+ pg.text(7,770,90);
+ pg.endDraw();
+ image(pg, 20, 20); 
+ pg.clear();
+}

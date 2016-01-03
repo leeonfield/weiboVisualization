@@ -1,0 +1,42 @@
+  PGraphics pg;
+  PFont font;
+  JSONArray weiboArrary=new JSONArray();
+  int[] amount1=new int[200];
+  int[] amount2=new int[200];
+void setup(){
+  weiboArrary=loadJSONArray("data.json");
+  size(1000,1000,P2D);
+  pg = createGraphics(1000, 1000);
+  font = loadFont("Courier-12.vlw");
+  for(int i=0;i<weiboArrary.size();i++){
+    int t= weiboArrary.getJSONObject(i).getInt("Date")*24+weiboArrary.getJSONObject(i).getInt("Hour");
+    amount1[t]+=1;
+  }
+}
+
+void draw(){
+ background(204,204,204);
+ pg.beginDraw();
+ pg.stroke(153);
+ pg.line(100,100,100,500);
+ pg.line(100,500,900,500);
+ pg.line(100,400,900,400);
+ pg.line(100,300,900,300);
+ pg.line(100,200,900,200);
+ pg.fill(114,125,244);
+ pg.triangle(97,106,100,100,103,106);
+ pg.triangle(896,496,900,501,896,504);
+ pg.textFont(font, 12);
+ pg.text("Chat_Amount",20,100);
+ pg.text("Date",890,515);
+ pg.text(100, 70, 400);
+ pg.text(200, 70, 300);
+ pg.text(300, 70, 200);
+ for(int i=1;i<100;i++){
+    pg.line((i-1)*4,amount1[i-1],4*i,amount1[i]);
+ }
+  pg.endDraw();
+  image(pg, 20, 20); 
+  pg.clear();
+
+}
