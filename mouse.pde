@@ -57,4 +57,12 @@ void mouseClicked() {
   if (mouseY>250&&mouseY<270&&mouseX<1240&&mouseX>1200) {
     line_init();
   }
+  for(int i=0;i<4;i++)
+  {
+    if(mouseX>1000+i*60&&mouseX<1040+i*60&&mouseY>600&&mouseY<620)
+    {
+      day_choose=i;
+      rd_color=color(255/(i+1),40*i,50*i);
+    }
+  }
 }

@@ -13,10 +13,11 @@ void drawCoordinate() {
     stroke(153);
     line(i*24+2*em, 500, i*24+2*em, 505);
     text(i*2%24, i*24+2*em, 510);
+    text("3-"+(1+i/12), i*24+2*em-7, 525);
   }
   for (int i=0; i<8; i++) {
-  line(2*em,500-50*i,2*em+5,500-50*i);
-  text(50*i,2*em-25,500-50*i);
+    line(2*em, 500-50*i, 2*em+5, 500-50*i);
+    text(50*i, 2*em-25, 500-50*i);
   }
   noFill();
 }

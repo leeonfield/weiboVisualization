@@ -2,8 +2,8 @@ void drawWeiboAmount() {
   if (mouseX>2*em&&mouseX<370*3+2*em) {
     int x=(mouseX-2*em)/3;
     fill(52, 152, 219);
-    text("Weibo: "+amount1[x], mouseX-35, 525);
-    text("Time:4."+x/96+" "+(x%96)/4+":"+((x%96)%4)*15,mouseX-50,540);
+    text("Weibo: "+amount1[x], mouseX-35, 545);
+    text("Time:3."+x/96+" "+(x%96)/4+":"+((x%96)%4)*15, mouseX-50, 560);
     noFill();
     stroke(153);
     line(mouseX, 500, mouseX, 500-amount1[x]);
@@ -44,6 +44,7 @@ void drawgroup() {
 }
 
 void drawbtn() {
+  fill(0, 0, 0);
   text("fans-amount", 1050, 90);
   textAlign(LEFT, BOTTOM);
   text("fans<10000", 1000, 115);
@@ -52,32 +53,48 @@ void drawbtn() {
   text("1000000<fans<1000000", 1000, 205);
   text("10000000<fans", 1000, 235);
   text("Reset", 1000, 260);
+  noFill();
   textFont(font, 20);
   textAlign(LEFT, BOTTOM);
-  text("+", 1245, 115);
-  text("-", 1185, 115);
-  text("+", 1245, 145);
-  text("-", 1185, 145);
-  text("+", 1245, 175);
-  text("-", 1185, 175);
-  text("+", 1245, 205);
-  text("-", 1185, 205);
-  text("+", 1245, 235);
-  text("-", 1185, 235);
+
+ 
   noStroke();
   fill(46, 204, 113);
   rect(1200, 100, 40, 20);
+  ellipse(1255, 110, 20, 20);
+  ellipse(1185, 110, 20, 20);
+
   fill(241, 196, 15);
   rect(1200, 130, 40, 20);
+  ellipse(1255, 140, 20, 20);
+  ellipse(1185, 140, 20, 20);
+
   fill(142, 68, 173);
   rect(1200, 160, 40, 20);
+  ellipse(1255, 170, 20, 20);
+  ellipse(1185, 170, 20, 20);
+
   fill(52, 152, 219);
   rect(1200, 190, 40, 20);
+  ellipse(1255, 200, 20, 20);
+  ellipse(1185, 200, 20, 20);
+
   fill(231, 76, 60);
   rect(1200, 220, 40, 20);
+  ellipse(1255, 230, 20, 20);
+  ellipse(1185, 230, 20, 20);
 
   fill(52, 73, 94);  
   rect(1200, 250, 40, 20);
-
+  text("+", 1249, 120);
+  text("-", 1179, 120);
+  text("+", 1249, 150);
+  text("-", 1179, 150);
+  text("+", 1249, 180);
+  text("-", 1179, 180);
+  text("+", 1249, 210);
+  text("-", 1179, 210);
+  text("+", 1249, 240);
+  text("-", 1179, 240);
   noFill();
 }

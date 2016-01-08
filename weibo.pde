@@ -30,7 +30,8 @@ int hour_length2;  //每个时间段的个数
 float radar_angle;  //扫描角度
 float point_size;   //结点大小
 boolean lei=true;
-
+int day_choose;
+color rd_color;  //不同日期数据点的颜色
 
 void setup() {
   font = loadFont("Courier-12.vlw");
