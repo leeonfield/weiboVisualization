@@ -13,6 +13,9 @@ assignment of data visualization,which shows users'habit ofusing weibo and the w
 - 微博用户发微时间「分析微博用户习惯」
 - 大事件发生，微博数量的可视化「分析人群关注度趋势变化」
 
+运行方式:
+以工程方式在processing中打开，主文件是weibo.pde，运行即可
+
 注：雷达图由秦望同学完成
 
 处理过程如下:
