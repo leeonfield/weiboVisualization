@@ -1,15 +1,26 @@
-## weiboVisualization
+## weibo data Visualization
 assignment of data visualization,which shows users'habit ofusing weibo and the weibo tendency of Yunnan terrorist attacks.
 
-##关于用户使用微博习惯以及微博大事件用户关注趋势的数据可视化
+## 微博数据可视化
 
-Intro:数据可视化课程作业
+介绍:基于微博数据的进行的可视化
 
-- 对微博用户发微时间的可视化以分析微博用户习惯
-- 对云南暴恐时间相关微博数量的可视化以分析人群对于时间关注度趋势变化
-工具：Processing
+工具：Processing3.0
 
-数据量：120W条微博
+数据量：120W条
 
-注：*雷达图是秦望做的*
+可视化对象:
+- 微博用户发微时间「分析微博用户习惯」
+- 大事件发生，微博数量的可视化「分析人群关注度趋势变化」
 
+注：雷达图由秦望同学完成
+
+处理过程如下:
+原始数据是txt文件，使用processing对每条微博匹配相关字段过滤出与云南暴恐事件相关的微博，再将每条微博的发微时间，用户信息等信息提取，再将数据推进数组，结果存在json文件中。
+**注：processing不适合处理数据，过程很漫长，可能会死机，所以处理数据是不建议用**
+可视化时，展示的是json中的数据，数据处理的工作已经完成，processing只需要做展示，压力很小，展示效果见下图
+![雷达图]( 7xlkdt.com1.z0.glb.clouddn.com/16-7-19/web1radar.png)
+![折线图]( 7xlkdt.com1.z0.glb.clouddn.com/16-7-19/web2radar.png)
+
+
+BUG：仍需要改进的地方，因为屏幕分辨率比较低，开发的时候忽略了分辨率自适应，

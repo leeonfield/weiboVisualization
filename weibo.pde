@@ -11,7 +11,7 @@ int[] group4=new int[2000];
 int[] group5=new int[2000];
 int[] flag=new int[5];
 float[] arg=new float[5];
-JSONArray mplane=new JSONArray();
+
 JSONArray kunterror=new JSONArray();
 JSONArray kbigv=new JSONArray();
 JSONArray mbigv=new JSONArray();

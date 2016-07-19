@@ -1,6 +1,6 @@
 void datafilter() {
   kunterror=loadJSONArray("kunterror.json");
-  mplane=loadJSONArray("mplane.json");
+ // mplane=loadJSONArray("mplane.json");
   for (int i=0; i<kunterror.size(); i++) {
     int d=kunterror.getJSONObject(i).getInt("Date");
     int h=kunterror.getJSONObject(i).getInt("Hour");
@@ -8,13 +8,7 @@ void datafilter() {
     int t=((d-1)*24*60+h*60+m)/15;
     amount1[t]+=1;
   }
-  for (int i=0; i<mplane.size(); i++) {
-    int d=mplane.getJSONObject(i).getInt("Date");
-    int h=mplane.getJSONObject(i).getInt("Hour");
-    int m=mplane.getJSONObject(i).getInt("Minute");
-    int t=((d-8)*24*60+h*60+m)/15;
-    amount2[t]+=1;
-  }
+
 }
 void groupfilter() {
   JSONArray t=new JSONArray();
